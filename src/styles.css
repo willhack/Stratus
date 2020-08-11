@@ -1,0 +1,12 @@
+body {
+  background-color: #36557f;
+}
+.hello {
+  font-size: 32pt;
+  color: #dfeaf3;
+}
+
+.hello img {
+  width: 30px;
+  height: 30px;
+}
