@@ -1,3 +1,5 @@
+/* 192.168.86.27 */
+
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
@@ -17,6 +19,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(clientDir, '/index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Listening on PORT ${PORT}...`);
 });

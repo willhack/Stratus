@@ -9,21 +9,22 @@
 ## Initial Setup
 - [x] Git init and link remote repo
 - [x] NPM init
-- [ ] Build webpack
+- [x] Build webpack
+- [x] Get yourself into a git hole and dig your way out
 
 ## Design overall architecture
-Once the initial setup is complete, move on to mapping out the file structure - What will be serverside? What will be front end? What libraries and frameworks will you be using? This does not have to be set in stone! Revsiti from time to time to see if anything can be DRYed out/refactored.
+Once the initial setup is complete, move on to mapping out the file structure - What will be serverside? What will be front end? What libraries and frameworks will you be using? This does not have to be set in stone! Revisit from time to time to see if anything can be DRYed out/refactored.
 - [ ] Initial architecture map
 
 ## Building Server Infrastructure 
-- [ ] Start localhost server
-- [ ] Serve root directory (start with static website)
+- [x] Start localhost server
+- [x] Serve root directory (start with static website)
 Extensions:
-- [ ] Access localhost server from other devices on the same network
+- [x] Access localhost server from other devices on the same network
 - [ ] Serve folder of files
 
 ## Building the Front End
-- [ ] Build basic 'hello world' page with react.
+- [x] Build basic 'hello world' page with react.
 - [ ] Dynamically populate front end with lecture/approach slide cards
 - [ ] Open slides in new link upon click
 Extension

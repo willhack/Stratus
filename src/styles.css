@@ -1,12 +1,8 @@
 body {
   background-color: #36557f;
+/*   background-color: tomato; */
 }
-.hello {
-  font-size: 32pt;
+#title {
+  font-size: 15vmin;
   color: #dfeaf3;
-}
-
-.hello img {
-  width: 30px;
-  height: 30px;
 }
