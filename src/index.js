@@ -1,8 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './styles.css';
+import './styles';
+import App from './components/App';
 
 render(
-  <div id="title">Hey, cutie!</div>,
+  <App />,
   document.getElementById('root'),
 );
+
+module.hot.accept();

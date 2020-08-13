@@ -1,0 +1,62 @@
+$primary-light: #dfeaf3;
+$primary-dark: #36557f;
+$primary-shadow: #8699B2;
+$header-height: 15vmin;
+$main-width: 90vw;
+$main-height: 75vh;
+
+* {
+  color: $primary-light;
+}
+
+body {
+  margin: 0;
+  background-color: $primary-light;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: $primary-dark;
+  height: $header-height;
+  box-shadow: 0px 0px 2px 5px $primary-shadow;
+}
+
+.mainContainer {
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: $main-width;
+  border-radius: 10px;
+  background-color: $primary-dark;
+  box-shadow: 0px 0px 3px 3px $primary-shadow;
+
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: $main-width;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding-left: 4vmin;
+  font-size: 10vmin;
+  color: $primary-light;
+}
+
+button {
+  background-color: $primary-dark;
+  width: $main-width;
+  height: 20vh;
+  border-radius: 5px;
+  border: 1px solid $primary-shadow;
+  font-size: 12pt;
+}
+
+@media screen and (min-width: 300px) {
+  button { font-size: 4vmax; }
+}
