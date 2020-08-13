@@ -27,21 +27,21 @@ Once the initial setup is complete, move on to mapping out the file structure - 
 - [x] Build basic 'hello world' page with react.
 - [x] Dynamically populate front end with folders menu
 - [x] Give minimal styling to the front end
-- [ ] Dynamically populate dropdown folders menu with slides
-- [ ] Open slides in new link upon click
+- [x] Dynamically populate dropdown folders menu with slides
+- [x] Open slides in new link upon click
+
+## Extensions
+- [x] Improve UX/UI with s?css styling
 - [ ] Open slides in same window, with mini view window
 
-## Stretch...
-Server:
-- [ ] Switch to directory of video files, streaming/latency/quality? issues?
+## Stretch....
 Front End:
-- [ ] Improve UX/UI with s?css styling
-- [ ] Connect to API for movie images, information
-
-## Super Stretch....
-Front End:
+- [ ] Add user login page
 - [ ] Add favorites/'watch list' sections
 Server:
-- [ ] Add cookies for storing favorites/'watch list'
+- [ ] Access server from devices not on the same network
+- [ ] Switch to directory of video files (streaming/latency/quality?)
+- [ ] Connect to API for movie images, information
+- [ ] Add authentication for storing favorites/'watch list'
 Database:
 - [ ] Create SQL database for storing user information

@@ -1,9 +1,11 @@
 import React from 'react';
+import logo from '../../cs.png';
 
 function Header() {
   return (
     <div className='header'>
-      <h1>Welcome!</h1>
+      <img src={logo} />
+      <h1>Slides, foo!</h1>
     </div>
   );
 }

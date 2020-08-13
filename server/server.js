@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleWare = require('webpack-dev-middleware');
@@ -19,6 +20,10 @@ app.get('/assets/slides', assetController.getSlides, (req, res) => {
   res.status(200).json(res.locals.slides);
 });
 
+app.get('/assets/*', (req, res) => {
+  res.sendFile(path.join(__dirname, unescape(req.url)));
+});
+
 app.get('/assets', assetController.getFolders, (req, res) => {
   res.status(200).json(res.locals.folders);
 });
@@ -27,7 +32,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(clientDir, '/index.html'));
 });
 
-// 192.168.86.27
+// access on 192.168.86.27
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Listening on PORT ${PORT}...`);
 });

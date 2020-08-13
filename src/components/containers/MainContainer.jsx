@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { join, resolve } from 'path';
 import Folder from './Folder';
 
 class MainContainer extends Component {
@@ -7,31 +8,34 @@ class MainContainer extends Component {
 
     this.state = {
       loaded: false,
-      folders: [],
+      folders: [], // each folder in folders is an array of pdf objects with name and url keys
     };
     this.handleChange = this.handleChange.bind(this);
+    this.path = '../../../assets';
   }
 
   handleChange(id) {
-    this.setState((prevState) => {
-      const updatedFolders = prevState.folders.map((folder) => {
-        if (folder.id === id) {
-          folder.open = !folder.open;
-          console.log(`changed ${folder.name} to ${folder.open}`);
-          fetch('../../../assets/slides', { headers: { folder: folder.name } })
+    const updatedFolders = this.state.folders.map((folder) => {
+      if (folder.id === id) {
+        folder.open = !folder.open;
+        if (!folder.open) folder.slides = [];
+        else {
+          fetch(join(this.path, '/slides'), { headers: { folder: folder.name } })
             .then((res) => res.json())
-            .then((res) => console.log(res));
+            .then((res) => folder.slides.push(...res))
+            .then(() => this.forceUpdate());
         }
-        return folder;
-      });
-      return {
-        folders: updatedFolders,
-      };
+      } else {
+        folder.open = false;
+        folder.slides = [];
+      }
+      return folder;
     });
+    this.setState({ folders: updatedFolders });
   }
 
   componentDidMount() {
-    fetch('../../../assets')
+    fetch(this.path)
       .then((res) => res.json())
       .then((res) => (
         res.reduce((acc, folder) => {
@@ -39,6 +43,7 @@ class MainContainer extends Component {
           storage.id = res.indexOf(folder);
           storage.name = folder;
           storage.open = false;
+          storage.slides = [];
           acc.push(storage);
           return acc;
         }, [])
@@ -56,7 +61,7 @@ class MainContainer extends Component {
   render() {
     const { err, loaded, folders } = this.state;
     if (err) return <div>Error: {err.message}</div>;
-    if (!loaded) return <div className="mainContainer">{'Hey, cutie! It\'s loading...'}</div>;
+    if (!loaded) return <div className="mainContainer"><h1>{'Loading, please stand by...'}</h1></div>;
 
     const folderButtons = folders.map((folder) => (
       <Folder

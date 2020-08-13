@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 
 const folderDir = resolve(__dirname, '../assets');
 const assetController = {};
@@ -20,8 +20,20 @@ assetController.getFolders = (req, res, next) => {
 
 assetController.getSlides = (req, res, next) => {
   const slidesDir = resolve(folderDir, req.headers.folder);
-  const slides = fs.readdirSync(slidesDir, (err, slidesList) => ((err) ? next(err) : slidesList));
-  res.locals.slides = slides;
+  let slides = fs.readdirSync(slidesDir, (err, slidesList) => ((err) ? next(err) : slidesList));
+  slides = slides.filter((folder) => !(/^\./).test(folder));
+  // Return an array of objects consisting of the name of the slides and their location
+  res.locals.slides = slides.reduce((acc, slide) => {
+    const slideInfo = { name: slide };
+    slideInfo.url = join('assets', req.headers.folder, slide);
+    acc.push(slideInfo);
+    return acc;
+  }, []);
+  next();
+};
+
+assetController.getPDF = (req, res, next) => {
+  console.log(req);
   next();
 };
 

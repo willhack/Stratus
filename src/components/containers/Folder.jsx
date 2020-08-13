@@ -8,9 +8,11 @@ function Folder(props) {
         onClick={() => props.handleChange(props.folder.id)}
       >{props.folder.name}
       </button>
-     {<Slides />}
+      <div className="slides">
+        {<Slides slides={props.folder.slides} />}
+      </div>
     </div>
   );
-};
+}
 
 export default Folder;
