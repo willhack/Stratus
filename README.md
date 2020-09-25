@@ -1,4 +1,4 @@
-# Solo Project
+# Stratus
 
 ## Process
 - Stage 1: Ideation
